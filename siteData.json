@@ -9,9 +9,9 @@
         "project-team": "Project team",
         "isaac-ong": "Isaac Ong",
         "ajay-arvind": "Ajay Arvind",
-        "jasper-ng": "Jasper Ng",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "sherwyn-ng": "Sherwyn Ng",
+        "jasper": "Jasper",
+        "felix": "Felix"
       },
       "headingKeywords": {}
     },
@@ -154,6 +154,14 @@
     {
       "src": "team/johndoe.md",
       "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/sherwyn.md",
+      "title": "Sherwyn's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
