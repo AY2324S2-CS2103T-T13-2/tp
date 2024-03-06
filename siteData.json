@@ -11,7 +11,7 @@
         "ajay-arvind": "Ajay Arvind",
         "sherwyn-ng": "Sherwyn Ng",
         "jasper": "Jasper",
-        "felix": "Felix"
+        "felix-wang": "Felix Wang"
       },
       "headingKeywords": {}
     },
@@ -138,6 +138,14 @@
     {
       "src": "team/ajay.md",
       "title": "Ajay's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/felix.md",
+      "title": "Felix's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
