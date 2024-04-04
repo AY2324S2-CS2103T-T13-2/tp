@@ -156,6 +156,14 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/isaac.md",
+      "title": "Isaac's Project Portfolio Page",
+      "headings": {
+        "project-internbook": "Project: InternBook"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/jasper.md",
       "title": "Jasper's Project Portfolio Page",
       "headings": {
