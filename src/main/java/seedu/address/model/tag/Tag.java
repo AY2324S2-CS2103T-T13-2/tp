@@ -12,6 +12,7 @@ public class Tag {
     public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric and '/' characters only. "
                                                         + "And it can contain spaces between words.";
     public static final String VALIDATION_REGEX = "\\b\\p{Alnum}+(?:[/ ]*\\p{Alnum}+)*\\b";
+    public static final String DUPLICATE_TAG = "There should not be duplicate tags.";
 
     private final String tagName;
 

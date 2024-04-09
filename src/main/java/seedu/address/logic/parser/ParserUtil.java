@@ -135,7 +135,11 @@ public class ParserUtil {
     public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
         requireNonNull(tags);
         final Set<Tag> tagSet = new HashSet<>();
+        final Set<String> uniqueTags = new HashSet<>();
         for (String tagName : tags) {
+            if (!uniqueTags.add(tagName)) { // If adding returns false, tagName is a duplicate
+                throw new ParseException(Tag.DUPLICATE_TAG);
+            }
             tagSet.add(parseTag(tagName));
         }
         if (tagSet.isEmpty()) {
