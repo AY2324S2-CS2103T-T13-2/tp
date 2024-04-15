@@ -1,0 +1,26 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor LOGIC_COLOR_T4
+skinparam classBackgroundColor LOGIC_COLOR
+
+Class "{abstract}\nCommand" as Command
+Class FindCommand
+
+package "FindParser"{
+Class "<<interface>>\nParser" as Parser
+Class InternBookParser
+Class FindCommandParser
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> InternBookParser
+
+InternBookParser .down.> FindCommandParser: <<create>>
+
+FindCommandParser ..> FindCommand : <<create>>
+InternBookParser ..> Command : <<use>>
+FindCommandParser .up.|> Parser
+
+FindCommand -up-|> Command
+@enduml

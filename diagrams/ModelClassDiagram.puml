@@ -37,6 +37,7 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 
 InternBook *--> "1" UniqueCompanyList
 UniqueCompanyList --> "~* all" Company
+
 Company *--> Name
 Company *--> Email
 Company *--> "1..*" Tag
