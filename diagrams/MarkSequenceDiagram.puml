@@ -1,0 +1,44 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor LOGIC_COLOR_T4
+skinparam classBackgroundColor LOGIC_COLOR
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":MarkCommand" as MarkCommand LOGIC_COLOR
+participant ":Model" as Model LOGIC_COLOR
+participant ":Company" as Company LOGIC_COLOR
+end box
+
+[-> LogicManager: execute(markCommand)
+activate LogicManager
+
+LogicManager -> MarkCommand: execute(model)
+activate MarkCommand
+
+MarkCommand -> Model: getFilteredCompanyList()
+activate Model
+
+Model --> MarkCommand: lastShownList
+deactivate Model
+
+MarkCommand -> Model: markCompany(companyToMark)
+activate Model
+
+Model -> Company: markCompany(companyToMark)
+activate Company
+
+Company --> Model
+deactivate Company
+
+Model --> MarkCommand
+deactivate Model
+
+MarkCommand --> LogicManager: CommandResult
+deactivate MarkCommand
+
+[<-- LogicManager: CommandResult
+deactivate LogicManager
+@enduml
+

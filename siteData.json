@@ -56,21 +56,7 @@
         "edit-feature": "Edit feature",
         "application-date-property": "Application date property",
         "sort-feature": "Sort Feature",
-        "design-considerations-2": "Design considerations:",
-        "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
-        "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
-        "appendix-requirements": "Appendix: Requirements",
-        "product-scope": "Product scope",
-        "user-stories": "User stories",
-        "use-cases": "Use cases",
-        "non-functional-requirements": "Non-Functional Requirements",
-        "glossary": "Glossary",
-        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
-        "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-company": "Deleting a company",
-        "setting-reminder-2": "Setting reminder",
-        "saving-data": "Saving data"
+        "mark-unmark-feature": "Mark/Unmark feature"
       },
       "headingKeywords": {}
     },

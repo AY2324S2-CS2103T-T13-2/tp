@@ -1,0 +1,28 @@
+@startuml
+start
+!include style.puml
+!pragma useVerticalIf on
+skinparam ClassFontColor #000000
+skinparam ClassBorderColor #000000
+skinparam ClassBackgroundColor #FFFFAA
+
+:User executes mark command;
+
+:Parse index;
+
+if (Index is valid?) then (yes)
+  :Get company to mark from filtered company list;
+
+  if (Company is already marked?) then (yes)
+    :Display error message;
+  else (no)
+    :Mark company;
+    :Update filtered company list;
+    :Display success message;
+  endif
+else (no)
+  :Display error message;
+endif
+
+stop
+@enduml
