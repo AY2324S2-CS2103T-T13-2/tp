@@ -1,0 +1,81 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":InternBookParser" as InternBookParser LOGIC_COLOR
+participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
+participant ":ParserUtil" as ParserUtil LOGIC_COLOR
+participant "d:EditCommand" as EditCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("edit 1 -n ABC")
+activate LogicManager
+
+LogicManager -> InternBookParser : parseCommand("edit 1 -n ABC")
+activate InternBookParser
+
+create EditCommandParser
+InternBookParser -> EditCommandParser
+activate EditCommandParser
+
+
+
+EditCommandParser --> InternBookParser
+deactivate EditCommandParser
+
+InternBookParser -> EditCommandParser : parse("1 -n ABC")
+activate EditCommandParser
+
+create ParserUtil
+EditCommandParser -> ParserUtil: parseName("ABC")
+activate ParserUtil
+
+ParserUtil --> EditCommandParser: Name("ABC")
+deactivate ParserUtil
+
+
+create EditCommand
+EditCommandParser -> EditCommand
+activate EditCommand
+
+EditCommand --> EditCommandParser :
+deactivate EditCommand
+
+EditCommandParser --> InternBookParser : d
+deactivate EditCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+EditCommandParser -[hidden]-> InternBookParser
+destroy EditCommandParser
+
+InternBookParser --> LogicManager : d
+deactivate InternBookParser
+
+LogicManager -> EditCommand : execute(m)
+activate EditCommand
+
+EditCommand -> Model : setCompany()
+activate Model
+
+Model --> EditCommand
+deactivate Model
+
+create CommandResult
+EditCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> EditCommand
+deactivate CommandResult
+
+EditCommand --> LogicManager : r
+deactivate EditCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

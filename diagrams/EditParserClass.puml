@@ -1,0 +1,39 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor LOGIC_COLOR_T4
+skinparam classBackgroundColor LOGIC_COLOR
+
+Class "{abstract}\nCommand" as Command
+Class EditCommand
+
+package "EditParser"{
+Class "<<interface>>\nParser" as Parser
+Class InternBookParser
+Class EditCommandParser
+Class CliSyntax
+Class ParserUtil
+Class ArgumentMultimap
+Class ArgumentTokenizer
+Class Prefix
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> InternBookParser
+
+InternBookParser .down.> EditCommandParser: <<create>>
+InternBookParser .down.> EditCommandParser: <<create>>
+
+EditCommandParser ..> EditCommand : <<create>>
+InternBookParser ..> Command : <<use>>
+EditCommandParser .up.|> Parser
+EditCommandParser ..> ArgumentMultimap
+EditCommandParser ..> ArgumentTokenizer
+ArgumentTokenizer .left.> ArgumentMultimap
+EditCommandParser ..> CliSyntax
+CliSyntax ..> Prefix
+EditCommandParser ..> ParserUtil
+ParserUtil .down.> Prefix
+ArgumentTokenizer .down.> Prefix
+EditCommand -up-|> Command
+@enduml
