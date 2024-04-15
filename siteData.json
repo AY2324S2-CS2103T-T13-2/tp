@@ -129,9 +129,9 @@
         "listing-all-companies-list": "Listing all companies : list",
         "adding-a-company-add": "Adding a company: add",
         "editing-a-company-edit": "Editing a company : edit",
-        "locating-companies-and-tags-by-keywords-find": "Locating companies and tags by keywords: find 🔍",
+        "locating-companies-and-tags-by-keywords-find": "Locating companies and tags by keywords: find",
         "deleting-a-company-delete": "Deleting a company : delete",
-        "marking-a-company-mark": "Marking a company : mark ✔️",
+        "marking-a-company-mark": "Marking a company : mark",
         "unmarking-a-company-unmark": "Unmarking a company : unmark",
         "sorting-the-list-sort": "Sorting the list : sort",
         "setting-reminders-reminder": "Setting reminders : reminder",
@@ -139,9 +139,9 @@
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "future-enhancements": "Future Enhancements 🔨",
-        "faq": "FAQ ❓❓❓",
-        "known-issues": "Known issues 🚧",
+        "future-enhancements": "Future Enhancements",
+        "faq": "FAQ",
+        "known-issues": "Known issues",
         "command-summary": "Command summary"
       },
       "headingKeywords": {}
@@ -151,6 +151,14 @@
       "title": "",
       "headings": {
         "internbook": "InternBook"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/SherwynNg.md",
+      "title": "Sherwyn's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },
@@ -181,14 +189,6 @@
     {
       "src": "team/johndoe.md",
       "title": "John Doe's Project Portfolio Page",
-      "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "team/sherwyn.md",
-      "title": "Sherwyn's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
