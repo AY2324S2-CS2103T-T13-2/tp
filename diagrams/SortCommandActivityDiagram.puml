@@ -1,0 +1,24 @@
+@startuml
+!include style.puml
+
+|<b>Sort Command</b>|
+start
+:User inputs sort command;
+if (Input is valid?) then (yes)
+  :Parse input and determine sort type;
+  :Create SortCommand object with sort type;
+  if (SortCommand created successfully?) then (yes)
+    :Execute SortCommand;
+    if (Sorting successful?) then (yes)
+      :Display sorted company list;
+    else (no)
+      :Display error message;
+    endif
+  else (no)
+    :Display error message;
+  endif
+else (no)
+  :Display error message;
+endif
+stop
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":SortCommandParser" as SortCommandParser LOGIC_COLOR
+participant "s:SortCommand" as SortCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("sort a")
+activate LogicManager
+
+LogicManager -> SortCommandParser : parseCommand("sort a")
+activate SortCommandParser
+
+create SortCommand
+SortCommandParser -> SortCommand
+activate SortCommand
+
+SortCommand --> SortCommandParser :
+deactivate SortCommand
+
+SortCommandParser --> LogicManager : s
+deactivate SortCommandParser
+
+LogicManager -> SortCommand : execute(m)
+activate SortCommand
+
+SortCommand -> Model : sortCompanyListByName()
+activate Model
+
+Model --> SortCommand
+deactivate Model
+
+create CommandResult
+SortCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> SortCommand
+deactivate CommandResult
+
+SortCommand --> LogicManager : r
+deactivate SortCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
