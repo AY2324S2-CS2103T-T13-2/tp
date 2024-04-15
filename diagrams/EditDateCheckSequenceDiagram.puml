@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+
+participant ":InternBookParser" as InternBookParser LOGIC_COLOR
+participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
+participant "d:EditCommand" as EditCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "endDate:Date" as EndDate MODEL_COLOR
+end box
+
+[-> InternBookParser : parseCommand("edit ... -d1 -d2")
+activate InternBookParser
+
+create EditCommandParser
+InternBookParser -> EditCommandParser
+activate EditCommandParser
+
+EditCommandParser --> InternBookParser
+deactivate EditCommandParser
+
+InternBookParser -> EditCommandParser : parse("edit ... -d1 -d2")
+activate EditCommandParser
+
+create EndDate
+EditCommandParser -> EndDate
+activate EndDate
+
+EndDate --> EditCommandParser
+deactivate EndDate
+
+create EditCommand
+EditCommandParser -> EditCommand
+activate EditCommand
+
+EditCommand -> EndDate: compareTo(startDate)
+activate EndDate
+
+EndDate --> EditCommand
+deactivate EndDate
+
+EditCommand --> EditCommandParser :
+deactivate EditCommand
+
+EditCommandParser --> InternBookParser : d
+deactivate EditCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+EditCommandParser -[hidden]-> InternBookParser
+destroy EditCommandParser
+
+@enduml

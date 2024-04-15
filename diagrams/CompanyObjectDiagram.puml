@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/object-diagram
+!include style.puml
+
+object ":Company" as company
+object "startDate:Date" as startDate
+object "endDate:Date" as endDate
+
+startDate -[hidden]down-> endDate
+company -right-> startDate
+company -right-> endDate
+@enduml
