@@ -1,0 +1,78 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":InternBookParser" as InternBookParser LOGIC_COLOR
+participant ":SetReminderParser" as SetReminderParser LOGIC_COLOR
+participant ":ReminderSettings" as ReminderSettings LOGIC_COLOR
+participant "d:SetReminderCommand" as SetReminderCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("reminder -r 10")
+activate LogicManager
+
+LogicManager -> InternBookParser : parseCommand("reminder -r 10")
+activate InternBookParser
+
+create SetReminderParser
+InternBookParser -> SetReminderParser
+activate SetReminderParser
+
+SetReminderParser--> InternBookParser
+deactivate SetReminderParser
+
+InternBookParser -> SetReminderParser : parse("10")
+activate SetReminderParser
+
+create SetReminderCommand
+SetReminderParser -> SetReminderCommand
+activate SetReminderCommand
+
+SetReminderCommand --> SetReminderParser :
+deactivate SetReminderCommand
+
+SetReminderParser --> InternBookParser : r
+deactivate SetReminderParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+SetReminderParser -[hidden]-> InternBookParser
+destroy SetReminderParser
+
+InternBookParser --> LogicManager : r
+deactivate InternBookParser
+
+LogicManager -> SetReminderCommand : execute(m)
+activate SetReminderCommand
+
+create ReminderSettings
+SetReminderCommand -> ReminderSettings
+activate ReminderSettings
+
+ReminderSettings -> SetReminderCommand
+deactivate ReminderSettings
+
+SetReminderCommand -> Model : setReminderSettings(ReminderSettings)
+activate Model
+
+Model --> SetReminderCommand
+deactivate Model
+
+create CommandResult
+SetReminderCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> SetReminderCommand
+deactivate CommandResult
+
+SetReminderCommand --> LogicManager : r
+deactivate SetReminderCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

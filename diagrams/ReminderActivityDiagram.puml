@@ -1,0 +1,21 @@
+@startuml
+!include style.puml
+!pragma useVerticalIf on
+skinparam ClassFontColor #000000
+skinparam ClassBorderColor #000000
+skinparam ClassBackgroundColor #FFFFAA
+
+start
+:User execute reminder command;
+:Parse the reminder command;
+if () then ([invalid input])
+    while ([invalid input]))
+      :Output invalid input error;
+      :Prompts user to re-enter values;
+    endwhile
+else ([valid input])
+endif
+:Save user's input;
+stop
+
+@enduml
