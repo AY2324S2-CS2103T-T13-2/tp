@@ -155,6 +155,14 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/AjayArvind2207.md",
+      "title": "Ajay's Project Portfolio Page",
+      "headings": {
+        "project-internbook": "Project: InternBook"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/SherwynNg.md",
       "title": "Sherwyn's Project Portfolio Page",
       "headings": {
@@ -163,15 +171,7 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/ajay.md",
-      "title": "Ajay's Project Portfolio Page",
-      "headings": {
-        "project-internbook": "Project: InternBook"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "team/isaac.md",
+      "src": "team/cocoanautz.md",
       "title": "Isaac's Project Portfolio Page",
       "headings": {
         "project-internbook": "Project: InternBook"
@@ -179,7 +179,7 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/jasper.md",
+      "src": "team/jasperng-nus.md",
       "title": "Jasper's Project Portfolio Page",
       "headings": {
         "project-internbook": "Project: InternBook"
